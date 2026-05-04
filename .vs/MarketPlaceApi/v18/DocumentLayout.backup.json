@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Moscow\\OneDrive\\Desktop\\FullStack Ecommerce\\MarketPlaceApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{10105304-7241-4537-A075-96F4252268D3}|MarketPlaceApi\\MarketPlaceApi.csproj|c:\\users\\moscow\\onedrive\\desktop\\fullstack ecommerce\\marketplaceapi\\marketplaceapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{10105304-7241-4537-A075-96F4252268D3}|MarketPlaceApi\\MarketPlaceApi.csproj|solutionrelative:marketplaceapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Moscow\\OneDrive\\Desktop\\FullStack Ecommerce\\MarketPlaceApi\\MarketPlaceApi\\Migrations\\20260504164307_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MarketPlaceApi\\Migrations\\20260504164307_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{10105304-7241-4537-A075-96F4252268D3}|MarketPlaceApi\\MarketPlaceApi.csproj|c:\\users\\moscow\\onedrive\\desktop\\fullstack ecommerce\\marketplaceapi\\marketplaceapi\\data\\appdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10105304-7241-4537-A075-96F4252268D3}|MarketPlaceApi\\MarketPlaceApi.csproj|solutionrelative:marketplaceapi\\data\\appdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10105304-7241-4537-A075-96F4252268D3}|MarketPlaceApi\\MarketPlaceApi.csproj|c:\\users\\moscow\\onedrive\\desktop\\fullstack ecommerce\\marketplaceapi\\marketplaceapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{10105304-7241-4537-A075-96F4252268D3}|MarketPlaceApi\\MarketPlaceApi.csproj|solutionrelative:marketplaceapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{10105304-7241-4537-A075-96F4252268D3}|MarketPlaceApi\\MarketPlaceApi.csproj|c:\\users\\moscow\\onedrive\\desktop\\fullstack ecommerce\\marketplaceapi\\marketplaceapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -49,11 +49,11 @@
         },
         {
           "DockedHeight": 343,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "20260504164307_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\Moscow\\OneDrive\\Desktop\\FullStack Ecommerce\\MarketPlaceApi\\MarketPlaceApi\\Migrations\\20260504164307_InitialCreate.cs",
               "RelativeDocumentMoniker": "MarketPlaceApi\\Migrations\\20260504164307_InitialCreate.cs",
@@ -66,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AppDbContextFactory.cs",
               "DocumentMoniker": "C:\\Users\\Moscow\\OneDrive\\Desktop\\FullStack Ecommerce\\MarketPlaceApi\\MarketPlaceApi\\Data\\AppDbContextFactory.cs",
               "RelativeDocumentMoniker": "MarketPlaceApi\\Data\\AppDbContextFactory.cs",
@@ -79,13 +79,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\Moscow\\OneDrive\\Desktop\\FullStack Ecommerce\\MarketPlaceApi\\MarketPlaceApi\\appsettings.Development.json",
               "RelativeDocumentMoniker": "MarketPlaceApi\\appsettings.Development.json",
               "ToolTip": "C:\\Users\\Moscow\\OneDrive\\Desktop\\FullStack Ecommerce\\MarketPlaceApi\\MarketPlaceApi\\appsettings.Development.json",
               "RelativeToolTip": "MarketPlaceApi\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-05-04T16:39:48.977Z",
               "EditorCaption": ""

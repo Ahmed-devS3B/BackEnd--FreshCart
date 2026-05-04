@@ -101,22 +101,13 @@ builder.Services.AddAuthorization();
 var isDevelopment = builder.Environment.IsDevelopment();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policyBuilder =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        if (isDevelopment)
-        {
-            policyBuilder.WithOrigins("http://localhost:3000", "http://localhost:5173")
-                         .AllowAnyMethod()
-                         .AllowAnyHeader()
-                         .AllowCredentials();
-        }
-        else
-        {
-            policyBuilder.WithOrigins("https://ahmed-devs3b.github.io")
-                          .AllowAnyMethod()
-                         .AllowAnyHeader()
-                         .AllowCredentials();
-        }
+        policy
+            .SetIsOriginAllowed(_ => true) // يسمح لأي دومين
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials();
     });
 });
 
