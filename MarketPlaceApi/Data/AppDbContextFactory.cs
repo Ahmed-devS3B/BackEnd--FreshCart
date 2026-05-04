@@ -12,11 +12,12 @@ namespace MarketPlaceApi.Data
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
+                .AddJsonFile("appsettings.Development.json", optional: true)
                 .Build();
 
             var builder = new DbContextOptionsBuilder<MarketPlaceDbContext>();
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            builder.UseSqlServer(connectionString);
+            builder.UseNpgsql(connectionString);
 
             return new MarketPlaceDbContext(builder.Options);
         }
