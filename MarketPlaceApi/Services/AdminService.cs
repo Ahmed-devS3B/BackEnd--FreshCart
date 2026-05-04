@@ -62,9 +62,11 @@ namespace MarketPlaceApi.Services
             return new OkObjectResult(result);
         }
 
+        //Approve vendors
         public async Task<IActionResult> ApproveVendor(string phoneNumber)
         {
             var vendor = await _vendorRepository.GetByIdAsync(phoneNumber);
+
             if (vendor == null)
                 return new NotFoundObjectResult(new { Message = "Vendor not found." });
 
@@ -80,6 +82,7 @@ namespace MarketPlaceApi.Services
             return new OkObjectResult(new { Message = "Vendor approved successfully." });
         }
 
+        //Disapprove vendors
         public async Task<IActionResult> DisapproveVendor(string phoneNumber)
         {
             var vendor = await _vendorRepository.GetByIdAsync(phoneNumber);

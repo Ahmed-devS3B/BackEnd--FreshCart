@@ -33,6 +33,7 @@ namespace MarketPlaceApi.Controllers
             return await _authService.RegisterVendor(model);
         }
 
+        //the login Auth api
         [HttpPost("login/customer")]
         public async Task<IActionResult> LoginCustomer([FromBody] LoginModel model)
         {

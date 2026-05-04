@@ -47,6 +47,7 @@ namespace MarketPlaceApi.Services
             if (vendor == null)
                 return new NotFoundObjectResult(new { Message = "Vendor not found." });
 
+            //Checking permission before the adding
             if (vendor.IsPending)
                 return new BadRequestObjectResult(new { Message = "Vendor account is pending approval." });
 

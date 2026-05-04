@@ -67,7 +67,7 @@ namespace MarketPlaceApi.Services
                 PhoneNumber = model.PhoneNumber,
                 FullName = model.FullName,
                 Email = model.Email,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password),
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password),  //Salt and hash the password using BCrypt
                 ConfirmPasswordHash = BCrypt.Net.BCrypt.HashPassword(model.ConfirmPassword)
             };
 
@@ -143,11 +143,17 @@ namespace MarketPlaceApi.Services
             if (!model.Email.EndsWith("@marketplace.com"))
                 return new BadRequestObjectResult(new { Message = "Email must end with @marketplace.com." });
 
+            //Searches the Email in the DB and retrieves the corresponding customer record, if it exists.
             var customers = await _customerRepository.FindAsync(c => c.Email == model.Email);
             var customer = customers.FirstOrDefault();
+
+
+            //Verify the password using BCrypt's Verify method,
+            //which compares the provided password with the stored hash in DB
             if (customer == null || !BCrypt.Net.BCrypt.Verify(model.Password, customer.PasswordHash))
                 return new UnauthorizedObjectResult(new { Message = "Invalid email or password." });
 
+            //after the checking emain and pass , role is aasigned at the token and generated for customers
             var token = GenerateJwtToken(customer.PhoneNumber, customer.Email, "Customer");
             return new OkObjectResult(new
             {
@@ -180,6 +186,7 @@ namespace MarketPlaceApi.Services
             if (!vendor.IsEnabled)
                 return new BadRequestObjectResult(new { Message = "Vendor is disabled." });
 
+            //after the checking emain and pass , role is aasigned at the token and generated for vendors
             var token = GenerateJwtToken(vendor.PhoneNumber, vendor.BusinessEmail, "Vendor");
             return new OkObjectResult(new
             {
@@ -189,11 +196,15 @@ namespace MarketPlaceApi.Services
             });
         }
 
+
+        //the JWT Token generation , and the claims are built.
         private string GenerateJwtToken(string phoneNumber, string email, string role)
         {
+            //Create signing key from appsettings.json.
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+            // Create claims which is info inside token.
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, phoneNumber),
@@ -202,6 +213,7 @@ namespace MarketPlaceApi.Services
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
+            //Build the token with issuer, audience, claims, expiration time, and signing credentials.
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
@@ -209,6 +221,7 @@ namespace MarketPlaceApi.Services
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: creds);
 
+            //Then convert to string format to return it to the client.
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }

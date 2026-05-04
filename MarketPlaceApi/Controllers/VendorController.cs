@@ -7,6 +7,8 @@ namespace MarketPlaceApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
+    //Responsible for only Vendor related operations like adding products, managing orders.
     public class VendorController : ControllerBase
     {
         private readonly VendorService _vendorService;
@@ -17,7 +19,7 @@ namespace MarketPlaceApi.Controllers
         }
 
         [HttpPost("addproduct")]
-        [Authorize(Roles = "Vendor")]
+        [Authorize(Roles = "Vendor")] //Only Vendors allowed
         public async Task<IActionResult> AddProduct([FromBody] AddProductModel model)
         {
             if (!ModelState.IsValid)
@@ -27,14 +29,14 @@ namespace MarketPlaceApi.Controllers
         }
 
         [HttpGet("listproducts")]
-        [Authorize(Roles = "Vendor")]
+        [Authorize(Roles = "Vendor")]//Only Vendors allowed
         public async Task<IActionResult> ListProducts()
         {
             return await _vendorService.ListProducts(User);
         }
 
         [HttpPut("updateproduct/{productId}")]
-        [Authorize(Roles = "Vendor")]
+        [Authorize(Roles = "Vendor")]//Only Vendors allowed
         public async Task<IActionResult> UpdateProduct(int productId, [FromBody] UpdateProductModel model)
         {
             if (!ModelState.IsValid)
@@ -44,14 +46,14 @@ namespace MarketPlaceApi.Controllers
         }
 
         [HttpDelete("deleteproduct/{productId}")]
-        [Authorize(Roles = "Vendor")]
+        [Authorize(Roles = "Vendor")]//Only Vendors allowed
         public async Task<IActionResult> DeleteProduct(int productId)
         {
             return await _vendorService.DeleteProduct(User, productId);
         }
 
         [HttpGet("orders")]
-        [Authorize(Roles = "Vendor")]
+        [Authorize(Roles = "Vendor")]//Only Vendors allowed
         public async Task<IActionResult> ViewOrders()
         {
             return await _vendorService.ViewOrders(User);

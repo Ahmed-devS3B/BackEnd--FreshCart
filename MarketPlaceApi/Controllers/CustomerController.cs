@@ -7,6 +7,7 @@ namespace MarketPlaceApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //Responsible for only Customer related operations like browsing products, managing cart, placing orders.
     public class CustomerController : ControllerBase
     {
         private readonly CustomerService _customerService;
