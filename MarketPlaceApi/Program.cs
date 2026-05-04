@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,7 +45,7 @@ builder.Services.AddSwaggerGen(c =>
 
 // Add DbContext
 builder.Services.AddDbContext<MarketPlaceDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add SignalR
 builder.Services.AddSignalR();
@@ -98,13 +97,12 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 // Add CORS
-var isDevelopment = builder.Environment.IsDevelopment();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
         policy
-            .SetIsOriginAllowed(_ => true) // يسمح لأي دومين
+            .SetIsOriginAllowed(_ => true)
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
@@ -113,12 +111,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Enable Swagger in all environments
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
