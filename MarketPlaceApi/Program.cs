@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,8 +112,8 @@ builder.Services.AddCors(options =>
         }
         else
         {
-            policyBuilder.WithOrigins("https://yourfrontend.com")
-                         .AllowAnyMethod()
+            policyBuilder.WithOrigins("https://ahmed-devs3b.github.io")
+                          .AllowAnyMethod()
                          .AllowAnyHeader()
                          .AllowCredentials();
         }
