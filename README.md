@@ -299,8 +299,8 @@ This project was built with ❤️ by:
 | Name | GitHub |
 |---|---|
 | **Ahmed Ibrahim** | [@Ahmed-devS3B](https://github.com/Ahmed-devS3B) |
-| **Rawan Mahmoud** | — |
-| **Maha Elsayed** | — |
+| **Rawan Mahmoud** | [@Rwan-Mahmoud](https://github.com/Rwan-Mahmoud) |
+| **Maha Elsayed** | [@mahaelsayed2026-ship-it](https://github.com/mahaelsayed2026-ship-it) |
 
 </div>
 
